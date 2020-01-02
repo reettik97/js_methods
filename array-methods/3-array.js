@@ -11,11 +11,40 @@ var words = [
   'simple',
   'bring'
 ];
-
 // Write a function uniqueArray that receives an array of words as a parameter. And remove the duplicates, and return a new array. 
 // (indexOf)
 
+function uniqueArray(word , index){
+  if(words.indexOf(word , index+1)!=-1){
+    return false;
+  }
+  else{
+    return true;
+  }  
+}
+var newArray = words.filter(uniqueArray);
+console.log(newArray);
 
+//improve version
+
+let uniqueArray =  words.filter((current_value , index , arr)=>{
+  if( arr.indexOf(current_value , index+1)!=-1){
+     return false;
+  }
+ else{
+   return true;
+ }
+})
+console.log(uniqueArray);
+
+//More improve version
+
+let uniqueArray =  words.filter((current_value , index , arr)=>{
+  return (arr.indexOf(current_value , index+1)!=-1)?false:true;
+})
+
+
+//================================================================================
 
 var words2 = [
   'machine',
@@ -31,8 +60,16 @@ var words2 = [
 // Write a function doesWordExist that will take in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one.
 
 
+function doesWordExist(search_word){
+  var word=words2.filter((current_word)=> {
+    return (current_word === search_word)?true:false;
+  })
+  return (word.length>0)?true:false;
+}
+console.log(doesWordExist('disobedience'));   //true
+console.log(doesWordExist('reettik'));        //false
 
-
+//====================================================================================
 var words3 = [
   'machine',
   'matter',
@@ -47,13 +84,19 @@ var words3 = [
   'matter'
 ];
 
-
 // Write a function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.
 
+function doesWordExist(search_word){
+  var word=words3.filter((current_word)=> {
+    return (current_word === search_word)?true:false;
+  })
+  return (word.length);
+}
+console.log(doesWordExist('matter'));    //4
+console.log(doesWordExist('reettik'));   //0     
 
 
-
-
+//=================================================================================
 // Using the reduce() method, how would you sum up the population of every country except China?
 let data = [
   {
@@ -75,6 +118,18 @@ let data = [
 ]
 
 
+
+let population = data.reduce((sum , current_object , i)=>{
+  if(current_object.country !== "China"){
+    sum +=current_object.pop;
+  }
+ return sum;
+},sum=0);
+
+console.log(population);
+
+
+//=================================================================================
 // Use reduce method and summorize the collection like
 // { banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1 }
 const fruitBasket = [
@@ -91,8 +146,21 @@ const fruitBasket = [
   'fig'
 ];
 
+var new_object = fruitBasket.reduce((acc , current_fruit)=>{
+  if(acc[current_fruit]){
+    acc[current_fruit] = acc[current_fruit] + 1;
+  }
+  else{
+    acc[current_fruit] = 1;
+  }
+ return acc ;    
+
+} , acc ={})
+
+console.log(new_object);
 
 
+//================================================================================
 // Bonus Question (Solve only if you have time)
 var matrix = [
   [08,02,22,97,38,15,00,40,00,75,04,05,07,78,52,12,50,77,91,08],
@@ -118,3 +186,33 @@ var matrix = [
 ];
 // In the 20×20 grid above What is the greatest product of four adjacent numbers in the same direction (up, down, left, right)?
 // Write a function greatestProduct to find the answer!
+
+function greatestProduct(matrix){
+  
+  var max_product = 0;
+  
+  for(let i=0;i<matrix.length;i++){
+    for(let j=0;j<matrix[i].length-4;j++){
+       
+      if(max_product < (matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]))
+      {
+        max_product = (matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]);
+      
+      }
+    }
+  }
+  
+  for(let i=0;i<matrix.length;i++){
+    for(let j=0;j<matrix[i].length-4;j++){
+       
+      if(max_product < (matrix[j][i] * matrix[j+1][i] * matrix[j+2][i] * matrix[j+3][i]))
+      {
+        max_product = (matrix[j][i] * matrix[j+1][i] * matrix[j+2][i] * matrix[j+3][i]);
+      
+      }
+    }
+  }
+   return max_product;
+}
+
+console.log(greatestProduct(matrix));
