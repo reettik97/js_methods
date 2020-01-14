@@ -11,14 +11,14 @@ var words = [
 //Write a function findLongestWord that takes an array of words and returns the longest one.
 //If there are 2 with the same length, it should return the first occurrence.
 
-let longest_word = words.reduce((acc , cw )=>{
+let longestWord = words.reduce((acc , cw )=>{
   // console.log(acc +" "+ cw);
     if(acc.length < cw.length)
       {acc=cw;}
       return acc;
  })
  
- console.log(longest_word)  //crocodile
+ console.log(longestWord)  //crocodile
 
 //==================================================================================
 var numbers1 = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -26,8 +26,8 @@ var numbers1 = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 // Use reduce method of array
 // Use the above sum and calculate the average.
 
-var sum = numbers1.reduce((acc , current_value) =>{
-  acc+=current_value;
+var sum = numbers1.reduce((acc , currentValue) =>{
+  acc+=currentValue;
   return acc;
 } , acc = 0);
 
@@ -42,8 +42,8 @@ var numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
 
 var averageNumbers = numbers2 =>{
 
-  let sum = numbers2.reduce((acc , current_value) =>{
-        acc+=current_value;
+  let sum = numbers2.reduce((acc , currentValue) =>{
+        acc+=currentValue;
         return acc;    
   }, acc=0)
 
@@ -69,12 +69,12 @@ var words2 = [
 
 var averageWordLength = words2 =>{
   
-  let total_length = words2.reduce((acc , current_word) =>{
-      acc+=current_word.length;
+  let totalLength = words2.reduce((acc , currentWord) =>{
+      acc += currentWord.length;
     return acc;
   },acc = 0);
 //   console.log(total_length);
-  return total_length/(words2.length);
+  return totalLength/(words2.length);
 }
 
 console.log(averageWordLength(words2)); //5.3

@@ -17,33 +17,33 @@ var large =  Math.max(...numbers);
 //=================================================================
 // Find longest string in strings
 
-var string_length_array = strings.map(len => len.length);
-var max_length = Math.max(...string_length_array);
+var stringLengthArray = strings.map(len => len.length);
+var maxLength = Math.max(...string_length_array);
 
 //or
 
-var max_len = Number.NEGATIVE_INFINITY;
-function max_length(len){
-  if(len.length>max_len){
-    max_len = len.length;
+var maxLen = Number.NEGATIVE_INFINITY;
+function maxLength(len){
+  if(len.length>maxLen){
+    maxLen = len.length;
   }
 }
-strings.forEach(max_length);
-console.log(max_len);
+strings.forEach(maxLength);
+console.log(maxLen);
 
 //====================================================================
 // Find all the even numbers
 
-var even_num_array =  numbers.filter(num => num%2==0)
-console.log(...even_num_array);
+var evenNumArray =  numbers.filter(num => num%2==0)
+console.log(...evenNumArray);
 
 
 //====================================================================
 // Find all the odd numbers
 
 
-var odd_num_array =  numbers.filter(num => num&1);
-console.log(...odd_num_array);
+var oddNumArray =  numbers.filter(num => num&1);
+console.log(...oddNumArray);
 
 //====================================================================
 // Find all the words that contain 'is' use string method 'includes'

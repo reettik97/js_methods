@@ -27,8 +27,8 @@ console.log(newArray);
 
 //improve version
 
-let uniqueArray =  words.filter((current_value , index , arr)=>{
-  if( arr.indexOf(current_value , index+1)!=-1){
+let uniqueArray =  words.filter((currentValue , index , arr)=>{
+  if( arr.indexOf(currentValue , index+1)!=-1){
      return false;
   }
  else{
@@ -39,8 +39,8 @@ console.log(uniqueArray);
 
 //More improve version
 
-let uniqueArray =  words.filter((current_value , index , arr)=>{
-  return (arr.indexOf(current_value , index+1)!=-1)?false:true;
+let uniqueArray =  words.filter((currentValue , index , arr)=>{
+  return (arr.indexOf(currentValue , index+1)!=-1)?false:true;
 })
 
 
@@ -60,9 +60,9 @@ var words2 = [
 // Write a function doesWordExist that will take in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one.
 
 
-function doesWordExist(search_word){
-  var word=words2.filter((current_word)=> {
-    return (current_word === search_word)?true:false;
+function doesWordExist(searchWord){
+  var word=words2.filter((currentWord)=> {
+    return (currentWord === searchWord)?true:false;
   })
   return (word.length>0)?true:false;
 }
@@ -86,9 +86,9 @@ var words3 = [
 
 // Write a function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.
 
-function doesWordExist(search_word){
-  var word=words3.filter((current_word)=> {
-    return (current_word === search_word)?true:false;
+function doesWordExist(searchWord){
+  var word=words3.filter((currentWord)=> {
+    return (currentWord === searchWord)?true:false;
   })
   return (word.length);
 }
@@ -146,18 +146,18 @@ const fruitBasket = [
   'fig'
 ];
 
-var new_object = fruitBasket.reduce((acc , current_fruit)=>{
-  if(acc[current_fruit]){
-    acc[current_fruit] = acc[current_fruit] + 1;
+var newObject = fruitBasket.reduce((acc , currentFruit)=>{
+  if(acc[currentFruit]){
+    acc[currentFruit] = acc[currentFruit] + 1;
   }
   else{
-    acc[current_fruit] = 1;
+    acc[currentFruit] = 1;
   }
  return acc ;    
 
 } , acc ={})
 
-console.log(new_object);
+console.log(newObject);
 
 
 //================================================================================
@@ -189,14 +189,14 @@ var matrix = [
 
 function greatestProduct(matrix){
   
-  var max_product = 0;
+  var maxProduct = 0;
   
   for(let i=0;i<matrix.length;i++){
     for(let j=0;j<matrix[i].length-4;j++){
        
-      if(max_product < (matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]))
+      if(maxProduct < (matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]))
       {
-        max_product = (matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]);
+        maxProduct = (matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]);
       
       }
     }
@@ -205,14 +205,14 @@ function greatestProduct(matrix){
   for(let i=0;i<matrix.length;i++){
     for(let j=0;j<matrix[i].length-4;j++){
        
-      if(max_product < (matrix[j][i] * matrix[j+1][i] * matrix[j+2][i] * matrix[j+3][i]))
+      if(maxProduct < (matrix[j][i] * matrix[j+1][i] * matrix[j+2][i] * matrix[j+3][i]))
       {
-        max_product = (matrix[j][i] * matrix[j+1][i] * matrix[j+2][i] * matrix[j+3][i]);
+        maxProduct = (matrix[j][i] * matrix[j+1][i] * matrix[j+2][i] * matrix[j+3][i]);
       
       }
     }
   }
-   return max_product;
+   return maxProduct;
 }
 
 console.log(greatestProduct(matrix));
